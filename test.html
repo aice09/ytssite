@@ -1,0 +1,42 @@
+<!-- set request t -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const API_URL = 'https://yts.torrentbay.to/api/v2/list_movies.json?limit=50&sort_by=download_count&order_by=desc';
+
+//Get movies from API
+
+const getMovies = async (url) => {
+    
+        const response = await fetch(url);
+    
+        const data = await response.json();
+    
+        return data;
+    
+        }
+
+//Show movies in console
+
+const showMovies = async () => {
+        
+            const movies = await getMovies(API_URL);
+        
+            console.log(movies);
+        
+            }
+
+showMovies();
+
+
+    </script>
+</body>
+</html>
